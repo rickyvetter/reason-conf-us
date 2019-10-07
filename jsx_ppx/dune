@@ -1,0 +1,14 @@
+(rule
+ (targets reactjs_jsx_ppx_v3.ml)
+ (deps
+  (:dep reactjs_jsx_ppx_v3.cppo.ml))
+ (action
+  (run %{bin:cppo} -V OCAML:%{ocaml_version} -D BINARY %{dep}
+    -o %{targets})))
+
+(executable
+ (name reactjs_jsx_ppx_v3)
+ (public_name reactjs_jsx_ppx_v3)
+ (libraries compiler-libs.common)
+ (flags
+  (:standard -w -9)))

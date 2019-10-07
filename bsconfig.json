@@ -1,0 +1,17 @@
+
+{
+  "name": "react-hooks-template",
+  "ppx-flags": [
+    "./_build/default/jsx_ppx/reactjs_jsx_ppx_v3.exe"
+  ],
+  "sources": {
+    "dir" : "src",
+    "subdirs" : true
+  },
+  "package-specs": [{
+    "module": "commonjs",
+    "in-source": true
+  }],
+  "suffix": ".bs.js",
+  "refmt": 3
+}
