@@ -7,7 +7,7 @@ var Component2 = require("./Component2.bs.js");
 var ReactDOMRe = require("./vendor/ReactDOMRe.bs.js");
 
 ReactDOMRe.renderToElementWithId(React.jsxs(Component1.make, {
-          message: "Hello! Click this text."
+          greeting: "Hello!"
         }), "index1");
 
 ReactDOMRe.renderToElementWithId(React.jsxs(Component2.make, {

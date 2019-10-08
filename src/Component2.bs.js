@@ -4,6 +4,7 @@
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("./vendor/React.bs.js");
 var React$1 = require("react");
+var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 
 function Component2(Props) {
   var greeting = Props.greeting;
@@ -27,31 +28,36 @@ function Component2(Props) {
   var state = match[0];
   var message = "You've clicked this " + (String(state[/* count */0]) + " times(s)");
   var match$1 = state[/* show */1];
-  return React$1.jsx("div", {
-              children: React$1.jsxs(React.DOM[/* div */0], {
-                    children: /* array */[
-                      React$1.jsx("button", {
-                            children: message,
-                            onClick: (function (_event) {
-                                return Curry._1(dispatch, /* Click */0);
-                              })
-                          }),
-                      /* array */[React$1.jsx("div", {
-                              children: "one"
-                            }, "foo")],
-                      React$1.jsx("button", {
-                            children: "Toggle greeting",
-                            onClick: (function (_event) {
-                                return Curry._1(dispatch, /* Toggle */1);
-                              })
-                          }),
-                      match$1 ? greeting : null
-                    ]
-                  })
+  return React$1.jsxs(React.DOM[/* div */0], {
+              children: /* array */[
+                React$1.jsx("button", {
+                      children: message,
+                      onClick: (function (_event) {
+                          return Curry._1(dispatch, /* Click */0);
+                        })
+                    }),
+                React$1.jsx("div", {
+                      children: Belt_Array.map(/* () */0, (function (friend) {
+                              return React$1.jsx("div", {
+                                          children: friend[/* firstName */1]
+                                        }, friend[/* id */0]);
+                            }))
+                    }),
+                React$1.jsx("button", {
+                      children: "Toggle greeting",
+                      onClick: (function (_event) {
+                          return Curry._1(dispatch, /* Toggle */1);
+                        })
+                    }),
+                match$1 ? greeting : null
+              ]
             });
 }
 
+var friends = /* () */0;
+
 var make = Component2;
 
+exports.friends = friends;
 exports.make = make;
 /* react Not a pure module */

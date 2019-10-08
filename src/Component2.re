@@ -9,6 +9,13 @@ type action =
   | Click
   | Toggle;
 
+type person = {
+  id: string,
+  firstName: string
+};
+
+let friends: array(person) = Obj.magic();
+
 [@react.component]
 let make = (~greeting) => {
   let (state, dispatch) =
@@ -23,16 +30,22 @@ let make = (~greeting) => {
 
   let message =
     "You've clicked this " ++ string_of_int(state.count) ++ " times(s)";
-  <div>
-    <React.DOM.div>
-      <button onClick={_event => dispatch(Click)}>
-        {React.string(message)}
-      </button>
-      {React.array([|<div key="foo"> {React.string("one")} </div>|])}
-      <button onClick={_event => dispatch(Toggle)}>
-        {React.string("Toggle greeting")}
-      </button>
-      {state.show ? React.string(greeting) : React.null}
-    </React.DOM.div>
-  </div>;
+  <React.DOM.div>
+    <button onClick={_event => dispatch(Click)}>
+      {React.string(message)}
+    </button>
+    <div>
+      {
+        React.array(
+          Belt.Array.map(friends, friend =>
+            <div key=friend.id> {React.string(friend.firstName)} </div>
+          ),
+        )
+      }
+    </div>
+    <button onClick={_event => dispatch(Toggle)}>
+      {React.string("Toggle greeting")}
+    </button>
+    {state.show ? React.string(greeting) : React.null}
+  </React.DOM.div>;
 };

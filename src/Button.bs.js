@@ -3,73 +3,47 @@
 
 var React = require("react");
 
-function joinClasses(a, b) {
-  return a + (" " + b);
-}
-
-function Button$Button(Props) {
+function Button(Props) {
   var size = Props.size;
-  var color = Props.color;
+  var onClick = Props.onClick;
+  var children = Props.children;
   var tmp;
   switch (size) {
     case 0 : 
-        tmp = "default";
+        tmp = "20px";
         break;
     case 1 : 
-        tmp = "large";
+        tmp = "30px";
         break;
     case 2 : 
-        tmp = "small";
+        tmp = "10px";
         break;
     
   }
-  var tmp$1;
-  switch (color) {
-    case 0 : 
-        tmp$1 = "normal";
-        break;
-    case 1 : 
-        tmp$1 = "primary";
-        break;
-    case 2 : 
-        tmp$1 = "negative";
-        break;
-    
-  }
-  return React.jsxs("button", {
-              className: joinClasses(tmp, tmp$1)
+  return React.jsx("button", {
+              children: children,
+              style: {
+                height: tmp
+              },
+              onClick: onClick
             });
 }
 
-var Button = /* module */[/* make */Button$Button];
-
-function makeProps(param) {
-  return (function (param$1) {
-      return {
-              size: param,
-              color: /* Primary */1
-            };
-    });
+function makeProps(param, param$1, param$2) {
+  return {
+          size: /* Large */1,
+          onClick: param,
+          children: param$1
+        };
 }
 
-var RedButton = /* module */[
-  /* make */Button$Button,
+var Large = /* module */[
+  /* make */Button,
   /* makeProps */makeProps
 ];
 
-var foo = React.jsxs(Button$Button, {
-      size: /* Default */0,
-      color: /* Primary */1
-    });
+var make = Button;
 
-var bar = React.jsxs(Button$Button, {
-      size: /* Default */0,
-      color: /* Normal */0
-    });
-
-exports.joinClasses = joinClasses;
-exports.Button = Button;
-exports.RedButton = RedButton;
-exports.foo = foo;
-exports.bar = bar;
-/* foo Not a pure module */
+exports.make = make;
+exports.Large = Large;
+/* react Not a pure module */

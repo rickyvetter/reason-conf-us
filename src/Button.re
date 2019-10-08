@@ -1,38 +1,33 @@
-let joinClasses = (a, b) => a ++ " " ++ b;
 
-module Button = {
-  type size =
-    | Default
-    | Large
-    | Small;
-  type color =
-    | Normal
-    | Primary
-    | Negative;
-  [@react.component]
-  let make = (~size, ~color) => {
-    <button
-      className={joinClasses(
+
+
+type size =
+  | Default
+  | Large
+  | Small;
+[@react.component]
+let make =
+    (
+      ~size,
+      ~onClick: ReactEvent.Mouse.t => unit,
+      ~children: React.element(React.keyed),
+    ) => {
+  <button
+    style={ReactDOMRe.Style.make(
+      ~height=
         switch (size) {
-        | Large => "large"
-        | Default => "default"
-        | Small => "small"
+        | Large => "30px"
+        | Default => "20px"
+        | Small => "10px"
         },
-        switch (color) {
-        | Normal => "normal"
-        | Primary => "primary"
-        | Negative => "negative"
-        },
-      )}
-    />;
-  };
+      (),
+    )}
+    onClick>
+    children
+  </button>;
 };
 
-module RedButton = {
-  let make = Button.make;
-  let makeProps = Button.makeProps(~color=Button.Primary);
+module Large = {
+  let make = make;
+  let makeProps = makeProps(~size=Large);
 };
-
-let foo = <RedButton size=Button.Default />;
-
-let bar = <Button size=Button.Default color=Button.Normal />;
