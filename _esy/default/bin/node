@@ -1,4 +1,0 @@
-#!/bin/sh
-export ESY__NODE_BIN_PATH="/Users/rickyvetter/code/reason-conf-us/_esy/default/bin"
-exec "/Users/rickyvetter/.nvm/versions/node/v10.15.3/bin/node" -r "/Users/rickyvetter/code/reason-conf-us/_esy/default/pnp.js" "$@"
-              

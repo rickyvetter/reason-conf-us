@@ -24,13 +24,15 @@ let make = (~greeting) => {
   let message =
     "You've clicked this " ++ string_of_int(state.count) ++ " times(s)";
   <div>
-    <button onClick={_event => dispatch(Click)}>
-      {React.string(message)}
-    </button>
-    {React.array([|<div key="foo"> {React.string("one")} </div>|])}
-    <button onClick={_event => dispatch(Toggle)}>
-      {React.string("Toggle greeting")}
-    </button>
-    {state.show ? React.string(greeting) : React.null}
+    <React.DOM.div>
+      <button onClick={_event => dispatch(Click)}>
+        {React.string(message)}
+      </button>
+      {React.array([|<div key="foo"> {React.string("one")} </div>|])}
+      <button onClick={_event => dispatch(Toggle)}>
+        {React.string("Toggle greeting")}
+      </button>
+      {state.show ? React.string(greeting) : React.null}
+    </React.DOM.div>
   </div>;
 };

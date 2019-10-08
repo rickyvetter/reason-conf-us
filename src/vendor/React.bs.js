@@ -12,9 +12,12 @@ var Fragment = /* module */[];
 
 var Suspense = /* module */[];
 
+var DOM = /* module */[/* div */"div"];
+
 exports.Ref = Ref;
 exports.Children = Children;
 exports.Context = Context;
 exports.Fragment = Fragment;
 exports.Suspense = Suspense;
+exports.DOM = DOM;
 /* No side effect */

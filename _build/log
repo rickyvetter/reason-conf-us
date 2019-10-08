@@ -1,5 +1,0 @@
-# /Users/rickyvetter/.esy/3_____________________________________________________________/i/opam__s__dune-opam__c__1.11.3-392ef260/bin/dune build -p reactjs_jsx_ppx_v3
-# OCAMLPARAM: unset
-$ /usr/bin/getconf _NPROCESSORS_ONLN > /tmp/dune19e22f.output 2> /dev/null
-$ /Users/rickyvetter/.esy/3_____________________________________________________________/i/ocaml-4.2.3007-31049140/bin/ocamlc.opt -config > /tmp/dunefe484a.output
-$ /Users/rickyvetter/.esy/3_____________________________________________________________/i/opam__s__ocamlfind-opam__c__1.8.1-42d5726c/bin/ocamlfind printconf path > /tmp/dune6727fd.output
