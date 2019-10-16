@@ -4,6 +4,10 @@
 
 ```sh
 npm install
+
+# this is a super wild experimental project that requires a custom version of React, ReasonReact, and the ppx.
+# please bare with any issues you notice.
+cp React.js node_modules/react/cjs/react.development.js
 npm start
 # in another tab
 npm run webpack
